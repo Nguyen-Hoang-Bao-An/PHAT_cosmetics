@@ -163,3 +163,28 @@ Route::prefix('admin')->group(function(){
 // Route::get('/admin', function() {
 //     return view('layouts.admin');
 // })
+
+
+
+
+Route::prefix('user')->name('user')->group(function(){
+
+    Route::get('home', [HomeController::class, 'home'])->name('home');
+
+    Route::get('login', [LoginController::class, 'login'])->name('login');
+
+    // Route::post('postLogin', [LoginController::class, 'postLogin'])->name('postLogin');
+
+    Route::get('register', [LoginController::class, 'register'])->name('register');
+
+    Route::post('postRegister', [LoginController::class, 'postRegister'])->name('postRegister');
+
+    Route::get('cart', [CartController::class, 'cart'])->name('cart');
+
+    Route::get('checkout', [CheckOutController::class, 'checkout'])->name('checkout');
+
+    Route::get('contact', [ContactController::class, 'contact'])->name('contact');
+
+    Route::get('brand', [BrandController::class, 'brand'])->name('brand');
+
+});

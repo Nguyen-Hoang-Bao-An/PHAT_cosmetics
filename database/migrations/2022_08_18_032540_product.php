@@ -14,14 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('product_id');
             $table->string('name');
-            $table->string('price');
-            $table->string('featured_image_path')->nullable();
-            $table->text('content');
-            $table->integer('employee_id');
-            $table->integer('category_id');
-            $table->integer('brand_id');
+            $table->bigInteger('price');
+            $table->string('img');
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        //
     }
 };

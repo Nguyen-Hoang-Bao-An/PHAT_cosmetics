@@ -4,15 +4,6 @@
     <title>Product List</title>
 @endsection
 
-@section('css')
-    <link rel="stylesheet" href="{{ asset('admins/product/index/list.css') }}">
-@endsection
-
-@section('js')
-    <script src="{{ asset('vendors/sweetAlert2/sweetAlert2.js') }}"></script>
-    <script src="{{ asset('admins/misc/delete/delete.js') }}"></script>
-@endsection
-
 @section('content')
     <div class="content-wrapper">
         @include('partials.content-header', ['name' => 'Product', 'key' => 'List'])
@@ -38,33 +29,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($products as $productItem)
+                                {{-- @foreach ($categories as $category) --}}
                                     <tr>
-                                        <th>{{ $productItem->id }}</th>
-                                        <th>{{ $productItem->name }}</th>
-                                        <th>{{ $productItem->price }}</th>
-                                        <th>
-                                            <img class="product_images_150_150"
-                                                src="{{ $productItem->featured_image_path }}" alt="">
+                                        <th scope="row">1</th>
+                                        <th scope="row">iPhone 13</th>
+                                        <th scope="row">24.000.000</th>
+                                        <th scope="row">
+                                            <img src="" alt="">
                                         </th>
-                                        <td> {{ $productItem->category->name }}</td>
-                                        <td> {{ $productItem->brand->name }}</td>
-                                        </td>
+                                        <td>Mobile phone</td>
+                                        <td>Apple</td></td>
                                         <td>
-                                            <a href="{{ route('products.edit', ['id' => $productItem->id]) }}"
+                                            <a href="#"
                                                 class="btn btn-default">Edit</a>
-                                            <a href=" {{ route('products.delete', ['id' => $productItem->id]) }}"
-                                                data-url="{{ route('products.delete', ['id' => $productItem->id]) }}"
-                                                class="btn btn-danger action_delete">Delete</a>
+                                            <a href=" #"
+                                                class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
-                                @endforeach
+                                {{-- @endforeach --}}
 
                             </tbody>
                         </table>
                     </div>
                     <div class="col-md-12">
-                        {{ $products->links() }}
+                        {{-- {{ $categories->links() }} --}}
                     </div>
 
                 </div>

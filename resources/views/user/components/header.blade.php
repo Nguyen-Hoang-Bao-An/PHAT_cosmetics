@@ -63,12 +63,6 @@
                         <ul class="nav navbar-nav">
                             <li><a href="{{ asset('user/login') }}"><i class="fa fa-lock"></i> Login</a></li>
                             <li><a href="{{ asset('user/register') }}"><i class="fa fa-user"></i> Register</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-8 clearfix">
-                    <div class="shop-menu clearfix pull-right">
-                        <ul class="nav navbar-nav">
                             <li><a href="{{ asset('user/checkout') }}"><i class="fa fa-crosshairs"></i> Checkout</a>
                             </li>
                             <li class="cart-shop"><a href="{{ url('List-Carts') }}">
@@ -126,6 +120,15 @@
                         </ul>
                     </div>
                 </div>
+                <div class="col-md-8">
+                    <div class="shop-menu pull-right">
+                        <ul class="nav navbar-nav">
+                            <div class="search_box pull-right">
+                                <input type="text" placeholder="Search" />
+                            </div>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -149,11 +152,6 @@
                             <li class="dropdown"><a href="#">News</a></li>
                             <li class="dropdown"><a href="{{ asset('user/contact') }}">Contact</a></li>
                         </ul>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="search_box pull-right">
-                        <input type="text" placeholder="Search" />
                     </div>
                 </div>
             </div>

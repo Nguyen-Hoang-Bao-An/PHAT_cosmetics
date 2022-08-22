@@ -29,7 +29,9 @@
 
 
         @include('partials.footer')
+
     </div>
+
     <!-- jQuery -->
     <script src="  {{ asset('adminlte/plugins/jquery/jquery.min.js') }} "></script>
     <!-- Bootstrap 4 -->
@@ -37,7 +39,6 @@
     <!-- AdminLTE App -->
     <script src=" {{ asset('adminlte/dist/js/adminlte.min.js') }} "></script>
     @yield('js')
-    
 </body>
 
 </html>

@@ -40,7 +40,7 @@
                       <a href="{{ route('brands.index') }}" class="nav-link">
                           <i class="nav-icon fas fa-th"></i>
                           <p>
-                              Brands
+                              Product Brands
                           </p>
                       </a>
                   </li>
@@ -56,34 +56,6 @@
                           <p>Menu</p>
                       </a>
                   </li>
-                  <li class="nav-item">
-                      <a href="{{ route('sliders.index') }}" class="nav-link">
-                          <i class="nav-icon fas fa-th"></i>
-                          <p>Sliders</p>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="{{ route('settings.index') }}" class="nav-link">
-                          <i class="nav-icon fas fa-th"></i>
-                          <p>Settings</p>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="{{ route('users.index') }}" class="nav-link">
-                          <i class="nav-icon fas fa-th"></i>
-                          <p>Users List</p>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="{{ route('roles.index') }}" class="nav-link">
-                          <i class="nav-icon fas fa-th"></i>
-                          <p>Roles List</p>
-                      </a>
-                  </li>
-
-
-
-
 
 
 

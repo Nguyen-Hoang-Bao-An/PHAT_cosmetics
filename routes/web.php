@@ -199,3 +199,4 @@ Route::get('/Add-Cart/{id}','App\Http\Controllers\user\CartController@AddCart');
 Route::get('/Delete-Item-Cart/{id}','App\Http\Controllers\user\CartController@DeleteItemCart');
 Route::get('/List-Carts','App\Http\Controllers\user\CartController@ViewListCart');
 Route::get('/Delete-Item-List-Cart/{id}','App\Http\Controllers\user\CartController@DeleteListItemCart');
+Route::get('/Save-Item-List-Cart/{id}/{quanty}','App\Http\Controllers\user\CartController@SaveListItemCart');

@@ -92,17 +92,29 @@
 
                     <div class="features_items">
                         <!--features_items-->
-                        <h2 class="title text-center">Features Items</h2>
+                        <h2 class="title text-center">Hot Deal</h2>
                         @foreach ($products as $prd)
                             <div class="col-sm-4">
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
-                                        <div class="productinfo">
-                                            <img src="/user/image/{{ $prd->img }}"/>
-                                            <h2>{{ number_format($prd->price) }}đ</h2>
-                                            <p>{{ $prd->name }}</p>
-                                            <a onclick="AddCart({{ $prd->product_id }})" class="btn btn-default add-to-cart"
-                                                role="button"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <div class="productsinfo">
+                                            <img src="/user/image/{{ $prd->img }}" />
+                                            <div class="sales-products">
+                                                <strong class="off-sales">{{ number_format($prd->price) }}đ</strong>
+                                                <span class="sales">{{ number_format($prd->price) }}đ</span>
+                                                <span class="on-sales">{{ number_format($prd->price) }}đ</span>
+                                            </div>
+                                            <div class="">
+                                                <strong>{{ $prd->name }}</strong>
+                                            </div>
+                                            <h2 class="name-sales">
+                                                <div>{{ $prd->name }}</div>
+                                            </h2>
+                                            <div>
+                                                <a onclick="AddCart({{ $prd->product_id }})" class="btn btn-default add-to-cart"
+                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                <span class="gift-sales">{{ $prd->name }}</s>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -125,298 +137,98 @@
                         </div>
                         <div class="tab-content">
                             <div class="tab-pane fade active in" id="tshirt">
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery1.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="javascript:void(0);" class="btn btn-default add-to-cart"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                @foreach ($products as $prd)
+                                    <div class="col-sm-3">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo">
+                                                    <img src="/user/image/{{ $prd->img }}" />
+                                                    <h2>{{ number_format($prd->price) }}đ</h2>
+                                                    <p>{{ $prd->name }}</p>
+                                                    <a onclick="AddCart({{ $prd->product_id }})"
+                                                        class="btn btn-default add-to-cart" role="button"><i
+                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                </div>
                                             </div>
-
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery2.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <button type="submit" class="btn btn-default add-to-cart buy-now"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery3.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="javascript:void(0);" class="btn btn-default add-to-cart"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery4.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <button type="submit" class="btn btn-default add-to-cart buy-now"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
 
                             <div class="tab-pane fade" id="blazers">
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery4.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="javascript:void(0);" class="btn btn-default add-to-cart"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                @foreach ($products as $prd)
+                                    <div class="col-sm-3">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo">
+                                                    <img src="/user/image/{{ $prd->img }}" />
+                                                    <h2>{{ number_format($prd->price) }}đ</h2>
+                                                    <p>{{ $prd->name }}</p>
+                                                    <a onclick="AddCart({{ $prd->product_id }})"
+                                                        class="btn btn-default add-to-cart" role="button"><i
+                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                </div>
                                             </div>
-
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery3.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <button type="submit" class="btn btn-default add-to-cart buy-now"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery2.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="javascript:void(0);" class="btn btn-default add-to-cart"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery1.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <button type="submit" class="btn btn-default add-to-cart buy-now"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
 
                             <div class="tab-pane fade" id="sunglass">
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery3.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="javascript:void(0);" class="btn btn-default add-to-cart"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                @foreach ($products as $prd)
+                                    <div class="col-sm-3">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo">
+                                                    <img src="/user/image/{{ $prd->img }}" />
+                                                    <h2>{{ number_format($prd->price) }}đ</h2>
+                                                    <p>{{ $prd->name }}</p>
+                                                    <a onclick="AddCart({{ $prd->product_id }})"
+                                                        class="btn btn-default add-to-cart" role="button"><i
+                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                </div>
                                             </div>
-
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery4.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <button type="submit" class="btn btn-default add-to-cart buy-now"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery1.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="javascript:void(0);" class="btn btn-default add-to-cart"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery2.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <button type="submit" class="btn btn-default add-to-cart buy-now"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
 
                             <div class="tab-pane fade" id="kids">
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery1.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="javascript:void(0);" class="btn btn-default add-to-cart"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                @foreach ($products as $prd)
+                                    <div class="col-sm-3">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo">
+                                                    <img src="/user/image/{{ $prd->img }}" />
+                                                    <h2>{{ number_format($prd->price) }}đ</h2>
+                                                    <p>{{ $prd->name }}</p>
+                                                    <a onclick="AddCart({{ $prd->product_id }})"
+                                                        class="btn btn-default add-to-cart" role="button"><i
+                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                </div>
                                             </div>
-
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery2.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <button type="submit" class="btn btn-default add-to-cart buy-now"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery3.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="javascript:void(0);" class="btn btn-default add-to-cart"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery4.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <button type="submit" class="btn btn-default add-to-cart buy-now"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
 
                             <div class="tab-pane fade" id="poloshirt">
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery2.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="javascript:void(0);" class="btn btn-default add-to-cart"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                @foreach ($products as $prd)
+                                    <div class="col-sm-3">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo">
+                                                    <img src="/user/image/{{ $prd->img }}" />
+                                                    <h2>{{ number_format($prd->price) }}đ</h2>
+                                                    <p>{{ $prd->name }}</p>
+                                                    <a onclick="AddCart({{ $prd->product_id }})"
+                                                        class="btn btn-default add-to-cart" role="button"><i
+                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                </div>
                                             </div>
-
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery4.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <button type="submit" class="btn btn-default add-to-cart buy-now"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery3.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="javascript:void(0);" class="btn btn-default add-to-cart"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/eshopper/images/user/gallery1.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <button type="submit" class="btn btn-default add-to-cart buy-now"
-                                                    role="button"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -429,95 +241,40 @@
                         <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <div class="col-sm-4">
+                                    @foreach ($products as $prd)
+                                    <div class="col-sm-2">
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="/eshopper/images/user/recommend1.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <a href="javascript:void(0);" class="btn btn-default add-to-cart"
-                                                        role="button"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                <div class="productinfo">
+                                                    <img src="/user/image/{{ $prd->img }}" />
+                                                    <h2>{{ number_format($prd->price) }}đ</h2>
+                                                    <p>{{ $prd->name }}</p>
+                                                    <a onclick="AddCart({{ $prd->product_id }})"
+                                                        class="btn btn-default add-to-cart" role="button"><i
+                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="/eshopper/images/user/recommend2.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <button type="submit" class="btn btn-default add-to-cart buy-now"
-                                                        role="button"><i class="fa fa-shopping-cart"></i>Add to
-                                                        cart</button>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="/eshopper/images/user/recommend3.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <a href="javascript:void(0);" class="btn btn-default add-to-cart"
-                                                        role="button"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
+                                @endforeach
                                 </div>
                                 <div class="item">
-                                    <div class="col-sm-4">
+                                    @foreach ($products as $prd)
+                                    <div class="col-sm-2">
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="/eshopper/images/user/recommend1.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <button type="submit" class="btn btn-default add-to-cart buy-now"
-                                                        role="button"><i class="fa fa-shopping-cart"></i>Add to
-                                                        cart</button>
+                                                <div class="productinfo">
+                                                    <img src="/user/image/{{ $prd->img }}" />
+                                                    <h2>{{ number_format($prd->price) }}đ</h2>
+                                                    <p>{{ $prd->name }}</p>
+                                                    <a onclick="AddCart({{ $prd->product_id }})"
+                                                        class="btn btn-default add-to-cart" role="button"><i
+                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="/eshopper/images/user/recommend2.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <a href="javascript:void(0);" class="btn btn-default add-to-cart"
-                                                        role="button"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="/eshopper/images/user/recommend3.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <button type="submit" class="btn btn-default add-to-cart buy-now"
-                                                        role="button"><i class="fa fa-shopping-cart"></i>Add to
-                                                        cart</button>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
+                                @endforeach
                                 </div>
                             </div>
                             <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">

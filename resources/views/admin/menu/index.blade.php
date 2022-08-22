@@ -4,11 +4,6 @@
     <title>Menu List</title>
 @endsection
 
-@section('js')
-    <script src="{{ asset('vendors/sweetAlert2/sweetAlert2.js') }}"></script>
-    <script src="{{ asset('admins/misc/delete/delete.js') }}"></script>
-@endsection
-
 @section('content')
     <div class="content-wrapper">
         @include('partials.content-header', ['name' => 'Menu', 'key' => 'List'])
@@ -38,9 +33,7 @@
                                         <td>
                                             <a href="{{ route('menus.edit', ['id' => $menu->id]) }}"
                                                 class="btn btn-default">Edit</a>
-                                            <a href="{{ route('menus.delete', ['id' => $menu->id]) }}"
-                                                data-url="{{ route('menus.delete', ['id' => $menu->id]) }}"
-                                                class="btn btn-danger action_delete">Delete</a>
+                                            <a href="{{ route('menus.delete', ['id' => $menu->id]) }}" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

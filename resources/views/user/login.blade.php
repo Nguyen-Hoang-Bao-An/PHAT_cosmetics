@@ -51,7 +51,32 @@
 					<h2 class="or">OR</h2>
 				</div>
                 <div class="col-sm-4">
-                    <a href="" ></a>
+                    <div class="login-form"><!--login form-->
+                        <h2>Login as admin</h2>
+                        <form role="form" action="{{ url('user/postLogin') }}" method="POST" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            <div class="input-icons">
+                                <i class="fa fa-envelope icon"></i>
+                                <input class="input-field" type="email" placeholder="Email"/>
+                            </div>
+                            <div class="input-icons">
+                                <i class="fa fa-key icon"></i>
+                                <input class="input-field" type="text" placeholder="Password"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-inline">
+                                    <span>
+                                        <input type="checkbox" value="1">
+                                        Keep me signed in
+                                    </span>
+                                </label>
+                                <a href="" class="popup-forgot txt_color_1 pull-right">Forgot your password?</a>
+                            </div>
+                            <button type="submit" class="btn btn-default">Login</button>
+                        </form>
+                        Do not have an account?
+                        <a href="{{ asset('user/register') }}" class="txt_color_1 text-uppercase popup-login-dismiss popup-register">Create Account</a>
+                    </div><!--/login form-->
 				</div>
             </div>
         </div>

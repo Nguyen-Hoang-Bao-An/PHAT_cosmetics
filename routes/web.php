@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\CategoryController;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\user\HomeController;
 use App\Http\Controllers\user\LoginController;
 use App\Http\Controllers\user\CartController;
@@ -14,157 +15,265 @@ use App\Http\Controllers\user\BrandController;
 Route::get('/admin', 'App\Http\Controllers\AdminController@loginAdmin');
 Route::post('/admin', 'App\Http\Controllers\AdminController@postLoginAdmin');
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 
 Route::get('/home', function(){
     return view('home');
 });
 
-
+//Category
 Route::prefix('admin')->group(function(){
     Route::prefix('categories')->group(function () {
         Route::get('/', [
             'as' => 'categories.index',
             'uses' => 'App\Http\Controllers\CategoryController@index'
         ]);
+        
+    Route::get('/create', [
+        'as' => 'categories.create',
+        'uses' => 'App\Http\Controllers\CategoryController@create'
+    ]);
+    
+    Route::post('/store', [
+        'as' => 'categories.store',
+        'uses' => 'App\Http\Controllers\CategoryController@store'
+    ]);
 
-        Route::get('/create', [
-            'as' => 'categories.create',
-            'uses' => 'App\Http\Controllers\CategoryController@create'
-        ]);
+    Route::get('/edit/{id}', [
+        'as' => 'categories.edit',
+        'uses' => 'App\Http\Controllers\CategoryController@edit'
+    ]);
 
-        Route::post('/store', [
-            'as' => 'categories.store',
-            'uses' => 'App\Http\Controllers\CategoryController@store'
-        ]);
+    Route::post('/update/{id}', [
+        'as' => 'categories.update',
+        'uses' => 'App\Http\Controllers\CategoryController@update'
+    ]);
 
-        Route::get('/edit/{id}', [
-            'as' => 'categories.edit',
-            'uses' => 'App\Http\Controllers\CategoryController@edit'
-        ]);
+    Route::get('/delete/{id}', [
+        'as' => 'categories.delete',
+        'uses' => 'App\Http\Controllers\CategoryController@delete'
+    ]);
 
-        Route::post('/update/{id}', [
-            'as' => 'categories.update',
-            'uses' => 'App\Http\Controllers\CategoryController@update'
-        ]);
+});
 
-        Route::get('/delete/{id}', [
-            'as' => 'categories.delete',
-            'uses' => 'App\Http\Controllers\CategoryController@delete'
-        ]);
+//Brand    
+Route::prefix('brands')->group(function () {
+    Route::get('/', [
+        'as' => 'brands.index',
+        'uses' => 'App\Http\Controllers\BrandController@index'
+    ]);
+    
+    Route::get('/create', [
+        'as' => 'brands.create',
+        'uses' => 'App\Http\Controllers\BrandController@create'
+    ]);
+    
+    Route::post('/store', [
+        'as' => 'brands.store',
+        'uses' => 'App\Http\Controllers\BrandController@store'
+    ]);
 
-    });
+    Route::get('/edit/{id}', [
+        'as' => 'brands.edit',
+        'uses' => 'App\Http\Controllers\BrandController@edit'
+    ]);
 
-    Route::prefix('brands')->group(function () {
-        Route::get('/', [
-            'as' => 'brands.index',
-            'uses' => 'App\Http\Controllers\BrandController@index'
-        ]);
+    Route::post('/update/{id}', [
+        'as' => 'brands.update',
+        'uses' => 'App\Http\Controllers\BrandController@update'
+    ]);
 
-        Route::get('/create', [
-            'as' => 'brands.create',
-            'uses' => 'App\Http\Controllers\BrandController@create'
-        ]);
+    Route::get('/delete/{id}', [
+        'as' => 'brands.delete',
+        'uses' => 'App\Http\Controllers\BrandController@delete'
+    ]);
 
-        Route::post('/store', [
-            'as' => 'brands.store',
-            'uses' => 'App\Http\Controllers\BrandController@store'
-        ]);
+});
 
-        Route::get('/edit/{id}', [
-            'as' => 'brands.edit',
-            'uses' => 'App\Http\Controllers\BrandController@edit'
-        ]);
+//Menu
+Route::prefix('menus')->group(function () {
+    Route::get('/', [
+        'as' => 'menus.index',
+        'uses' => 'App\Http\Controllers\MenuController@index'
+    ]);
+    
+    Route::get('/create', [
+        'as' => 'menus.create',
+        'uses' => 'App\Http\Controllers\MenuController@create'
+    ]);
+    
+    Route::post('/store', [
+        'as' => 'menus.store',
+        'uses' => 'App\Http\Controllers\MenuController@store'
+    ]);
+    
+    Route::get('/edit/{id}', [
+        'as' => 'menus.edit',
+        'uses' => 'App\Http\Controllers\MenuController@edit'
+    ]);
 
-        Route::post('/update/{id}', [
-            'as' => 'brands.update',
-            'uses' => 'App\Http\Controllers\BrandController@update'
-        ]);
+    Route::post('/update/{id}', [
+        'as' => 'menus.update',
+        'uses' => 'App\Http\Controllers\MenuController@update'
+    ]);
 
-        Route::get('/delete/{id}', [
-            'as' => 'brands.delete',
-            'uses' => 'App\Http\Controllers\BrandController@delete'
-        ]);
+    Route::get('/delete/{id}', [
+        'as' => 'menus.delete',
+        'uses' => 'App\Http\Controllers\MenuController@delete'
+    ]);
 
-    });
+});
 
-    Route::prefix('menus')->group(function () {
-        Route::get('/', [
-            'as' => 'menus.index',
-            'uses' => 'App\Http\Controllers\MenuController@index'
-        ]);
+//Product
+Route::prefix('products')->group(function () {
+    Route::get('/', [
+        'as' => 'products.index',
+        'uses' => 'App\Http\Controllers\AdminProductController@index'
+    ]);
+    
+    Route::get('/create', [
+        'as' => 'products.create',
+        'uses' => 'App\Http\Controllers\AdminProductController@create'
+    ]);
 
-        Route::get('/create', [
-            'as' => 'menus.create',
-            'uses' => 'App\Http\Controllers\MenuController@create'
-        ]);
+    Route::post('/store', [
+        'as' => 'products.store',
+        'uses' => 'App\Http\Controllers\AdminProductController@store'
+    ]);
 
-        Route::post('/store', [
-            'as' => 'menus.store',
-            'uses' => 'App\Http\Controllers\MenuController@store'
-        ]);
+    Route::get('/edit/{id}', [
+        'as' => 'products.edit',
+        'uses' => 'App\Http\Controllers\AdminProductController@edit'
+    ]);
 
-        Route::get('/edit/{id}', [
-            'as' => 'menus.edit',
-            'uses' => 'App\Http\Controllers\MenuController@edit'
-        ]);
+    Route::post('/update/{id}', [
+        'as' => 'products.update',
+        'uses' => 'App\Http\Controllers\AdminProductController@update'
+    ]);
 
-        Route::post('/update/{id}', [
-            'as' => 'menus.update',
-            'uses' => 'App\Http\Controllers\MenuController@update'
-        ]);
+    Route::get('/delete/{id}', [
+        'as' => 'products.delete',
+        'uses' => 'App\Http\Controllers\AdminProductController@delete'
+    ]);
+    
+});
 
-        Route::get('/delete/{id}', [
-            'as' => 'menus.delete',
-            'uses' => 'App\Http\Controllers\MenuController@delete'
-        ]);
+//Slider
+Route::prefix('sliders')->group(function () {
+    Route::get('/', [
+        'as' => 'sliders.index',
+        'uses' => 'App\Http\Controllers\SliderAdminController@index'
+    ]);
 
-    });
+    Route::get('create', [
+        'as' => 'sliders.create',
+        'uses' => 'App\Http\Controllers\SliderAdminController@create'
+    ]);
 
-    Route::prefix('products')->group(function () {
-        Route::get('/', [
-            'as' => 'products.index',
-            'uses' => 'App\Http\Controllers\AdminProductController@index'
-        ]);
+    Route::post('store', [
+        'as' => 'sliders.store',
+        'uses' => 'App\Http\Controllers\SliderAdminController@store'
+    ]);
 
-        Route::get('/create', [
-            'as' => 'products.create',
-            'uses' => 'App\Http\Controllers\AdminProductController@create'
-        ]);
+    Route::get('edit/{id}', [
+        'as' => 'sliders.edit',
+        'uses' => 'App\Http\Controllers\SliderAdminController@edit'
+    ]);
 
-        Route::post('/store', [
-            'as' => 'products.store',
-            'uses' => 'App\Http\Controllers\AdminProductController@store'
-        ]);
+    Route::post('update/{id}', [
+        'as' => 'sliders.update',
+        'uses' => 'App\Http\Controllers\SliderAdminController@update'
+    ]);
 
-
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-
+    Route::get('delete/{id}', [
+        'as' => 'sliders.delete',
+        'uses' => 'App\Http\Controllers\SliderAdminController@delete'
+    ]);
 
 
 });
 
+//Settings
+Route::prefix('settings')->group(function () {
+    Route::get('/', [
+        'as' => 'settings.index',
+        'uses' => 'App\Http\Controllers\AdminSettingsController@index'
+    ]);
+    
+    Route::get('/create', [
+        'as' => 'settings.create',
+        'uses' => 'App\Http\Controllers\AdminSettingsController@create'
+    ]);
 
+    Route::post('/store',[
+        'as' => 'settings.store',
+        'uses' => 'App\Http\Controllers\AdminSettingsController@store'
+    ]);
 
+    Route::get('/edit/{id}', [
+        'as' => 'settings.edit',
+        'uses' => 'App\Http\Controllers\AdminSettingsController@edit'
+    ]);
 
+    Route::post('/update/{id}',[
+        'as' =>'settings.update',
+        'uses' => 'App\Http\Controllers\AdminSettingsController@update'
+    ]); 
 
+    Route::get('/delete/{id}', [
+        'as' => 'settings.delete',
+        'uses' => 'App\Http\Controllers\AdminSettingsController@delete'
+    ]);
+});
 
+//User
+Route::prefix('users')->group(function () {
+    Route::get('/', [
+        'as' => 'users.index',
+        'uses' => 'App\Http\Controllers\AdminUserController@index'
+    ]);
 
-// Route::get('/admin', function() {
-//     return view('layouts.admin');
-// })
+    Route::get('/create', [
+        'as' => 'users.create',
+        'uses' => 'App\Http\Controllers\AdminUserController@create'
+    ]);
 
+    Route::post('/store', [
+        'as' => 'users.store',
+        'uses' => 'App\Http\Controllers\AdminUserController@store'
+    ]);
+    
+    Route::get('/edit/{id}', [
+        'as' => 'users.edit',
+        'uses' => 'App\Http\Controllers\AdminUserController@edit'
+    ]);
+
+    Route::post('/update/{id}', [
+        'as' => 'users.update',
+        'uses' => 'App\Http\Controllers\AdminUserController@update'
+    ]);
+
+    Route::get('/delete/{id}', [
+        'as' => 'users.delete',
+        'uses' => 'App\Http\Controllers\AdminUserController@delete'
+    ]);
+    
+    //Roles
+Route::prefix('roles')->group(function () {
+    Route::get('/', [
+        'as' => 'roles.index',
+        'uses' => 'App\Http\Controllers\AdminRoleController@index'
+    ]);
+
+    Route::get('/create', [
+        'as' => 'roles.create',
+        'uses' => 'App\Http\Controllers\AdminRoleController@create'
+    ]);
+});
 
 
 

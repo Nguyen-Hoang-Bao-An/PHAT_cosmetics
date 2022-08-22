@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('price');
             $table->string('featured_image_path')->nullable();
             $table->text('content');
-            $table->integer('employee_id');
+            $table->integer('user_id');
             $table->integer('category_id');
             $table->integer('brand_id');
             $table->timestamps();

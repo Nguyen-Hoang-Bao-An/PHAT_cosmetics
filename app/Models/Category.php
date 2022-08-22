@@ -11,11 +11,7 @@ class Category extends Model
 
     protected $table = 'Categories';
     protected $fillable = ['name', 'parent_id', 'slug'];
-
+    
     use SoftDeletes;
     use HasFactory;
-
-    public function parent() {
-        return $this->belongsTo(Category::class,'parent_id','id');
-    }
 }

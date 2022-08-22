@@ -69,8 +69,39 @@ function DeleteListItemCart(product_id){
      });
 }
 
+function SaveListItemCart(product_id){
+    $.ajax({
+        url: '/Save-Item-List-Cart/'+product_id+'/'+$("#quanty-item-"+product_id).val(),
+        type: 'GET',
+     }).done(function(response){
+        RenderListCart(response);
+        alertify.success('Update Success message');
+     });
+}
+
 function RenderListCart(response){
     $("#list-carts").empty();
     $("#list-carts").html(response);
+    $("#total-quanty-list-show").text(!$("#total-quanty-list-cart").val() ? 0 : $("#total-quanty-list-cart").val());
+    $("#total-price-list-show").text(!$("#total-price-list-cart").val() ? 0 : $("#total-price-list-cart").val());
+
+    var proQty = $('.pro-qty');
+    proQty.prepend('<span class="slg dec qtybtn">-</span>');
+    proQty.append('<span class="slg inc qtybtn">+</span>');
+    proQty.on('click', '.qtybtn', function(){
+        var $button = $(this);
+        var oldValue = $button.parent().find('input').val();
+        if ($button.hasClass('inc')) {
+            var newVal = parseFloat(oldValue) + 1;
+        } else {
+            if (oldValue > 0) {
+                var newVal = parseFloat(oldValue) - 1;
+            } else {
+                newVal = 0;
+            }
+        }
+        $button.parent().find('input').val(newVal);
+    });
 }
+
 

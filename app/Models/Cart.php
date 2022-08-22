@@ -41,4 +41,15 @@ class Cart extends Model
         unset($this->products[$product_id]);
     }
 
+    public function UpdateItemCart($product_id, $quanty){
+        $this->totalQuanty -= $this->products[$product_id]['quanty'];
+        $this->totalPrice -= $this->products[$product_id]['price'];
+
+        $this->products[$product_id]['quanty'] = $quanty;
+        $this->products[$product_id]['price'] = $quanty * $this->products[$product_id]['productInfo']->price;
+
+        $this->totalQuanty += $this->products[$product_id]['quanty'];
+        $this->totalPrice += $this->products[$product_id]['price'];
+    }
+
 }
